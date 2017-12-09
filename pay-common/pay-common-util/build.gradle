@@ -1,0 +1,25 @@
+group 'pub.ustar'
+version '0.0.1'
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    maven { url 'http://maven.aliyun.com/nexus/content/groups/public' }
+    mavenCentral()
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
+}
+
+dependencies {
+    compile('com.fasterxml.jackson.core:jackson-core:2.8.1')
+    compile('com.fasterxml.jackson.core:jackson-annotations:2.8.1')
+    compile('com.fasterxml.jackson.core:jackson-databind:2.8.1')
+    compile('com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.8.1')
+    compile('com.fasterxml.jackson.dataformat:jackson-dataformat-csv:2.8.1')
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}

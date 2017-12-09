@@ -1,0 +1,24 @@
+server:
+ port: ${random.int[30000,65536]}
+
+spring:
+  application:
+    name: pay-trade-query
+  cloud:
+    consul:
+      host: consul-center
+      port: 8500
+      discovery:
+        tags: query
+        prefer-ip-address: true
+      config:
+        enabled: true
+        format: yaml
+        prefix: config
+        default-context: application
+        profile-separator: ','
+        watch:
+          enabled: true
+management:
+  security:
+    enabled: false

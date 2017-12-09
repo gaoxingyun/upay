@@ -1,0 +1,31 @@
+server:
+ port: 10000
+
+spring:
+  application:
+    name: pay-monitor-admin
+  cloud:
+    consul:
+      host: consul-center
+      port: 8500
+      discovery:
+        tags: monitor-admin
+        prefer-ip-address: true
+      config:
+        enabled: true
+        format: yaml
+        prefix: config
+        default-context: application
+        profile-separator: ','
+        watch:
+          enabled: true
+  boot:
+    admin:
+      discovery:
+        ignored-services: consul
+
+management:
+  security:
+    enabled: false
+
+

@@ -1,0 +1,3 @@
+rootProject.name = 'pay-gateway'
+includeFlat 'pay-common'
+include 'pay-common:pay-common-pojo'

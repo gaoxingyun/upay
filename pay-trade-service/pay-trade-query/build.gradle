@@ -1,0 +1,75 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.9.RELEASE'
+    }
+    repositories {
+        mavenLocal()
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public' }
+        mavenCentral()
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("gradle.plugin.com.palantir.gradle.docker:gradle-docker:0.13.0")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'com.palantir.docker'
+
+group = 'pub.ustar'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    maven { url 'http://maven.aliyun.com/nexus/content/groups/public' }
+	mavenCentral()
+}
+
+
+ext {
+	springCloudVersion = 'Edgware.RELEASE'
+    springBootAdminVersion = '1.5.5'
+}
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-actuator')
+	compile('org.springframework.cloud:spring-cloud-starter-consul-discovery')
+    compile('org.springframework.cloud:spring-cloud-starter-consul-config')
+//    compile('org.springframework.cloud:spring-cloud-starter-consul-bus')
+//    compile('org.springframework.cloud:spring-cloud-starter-bus-amq')
+
+	//compile('org.springframework.boot:spring-boot-starter-data-redis')
+	//compile('org.mybatis.spring.boot:mybatis-spring-boot-starter:1.3.1')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	runtime('org.springframework.boot:spring-boot-devtools')
+	//runtime('mysql:mysql-connector-java')
+
+    compile("de.codecentric:spring-boot-admin-starter-client:${springBootAdminVersion}")
+
+    compile project(':pay-common:pay-common-pojo')
+
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+	}
+}
+
+jar {
+    baseName = 'pay-trade-query'
+    version =  '0.0.1'
+}
+
+docker {
+    name "${project.group}/${jar.baseName}"
+    files jar.archivePath
+    buildArgs(['JAR_FILE': "${jar.archiveName}"])
+}
+
