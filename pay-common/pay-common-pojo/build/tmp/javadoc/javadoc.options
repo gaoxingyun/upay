@@ -1,9 +1,0 @@
--classpath '/Users/xy/Documents/code/github/gaoxingyun/upay/pay-common/pay-common-pojo/build/classes/java/main:/Users/xy/Documents/code/github/gaoxingyun/upay/pay-common/pay-common-pojo/build/resources/main:/Users/xy/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.9.3/193b96ef555b2f2573b576887ba9a93e4bf48e8c/jackson-databind-2.9.3.jar:/Users/xy/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-lang3/3.7/557edd918fd41f9260963583ebf5a61a43a6b423/commons-lang3-3.7.jar:/Users/xy/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.9.0/7c10d545325e3a6e72e06381afe469fd40eb701/jackson-annotations-2.9.0.jar:/Users/xy/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.9.3/ea9b6fc7bc3ccba9777b0827091f9aa1f8580371/jackson-core-2.9.3.jar'
--d '/Users/xy/Documents/code/github/gaoxingyun/upay/pay-common/pay-common-pojo/build/docs/javadoc'
--doctitle 'pay-common-pojo 0.0.1 API'
--quiet 
--windowtitle 'pay-common-pojo 0.0.1 API'
-'/Users/xy/Documents/code/github/gaoxingyun/upay/pay-common/pay-common-pojo/src/main/java/pub/ustar/pay/trade/common/model/pojo/TradeQueryRequest.java'
-'/Users/xy/Documents/code/github/gaoxingyun/upay/pay-common/pay-common-pojo/src/main/java/pub/ustar/pay/trade/common/model/pojo/TradeResponse.java'
-'/Users/xy/Documents/code/github/gaoxingyun/upay/pay-common/pay-common-pojo/src/main/java/pub/ustar/pay/trade/common/model/pojo/TradeQueryResponse.java'
-'/Users/xy/Documents/code/github/gaoxingyun/upay/pay-common/pay-common-pojo/src/main/java/pub/ustar/pay/trade/common/model/pojo/TradeRequest.java'
