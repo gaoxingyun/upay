@@ -3,13 +3,13 @@ server:
 
 spring:
   application:
-    name: pay-gateway
+    name: pay-trade-gateway
   cloud:
     consul:
       host: consul-center
       port: 8500
       discovery:
-        tags: pay-gateway
+        tags: pay-trade-gateway
         prefer-ip-address: true
       config:
         enabled: true
@@ -21,7 +21,7 @@ spring:
           enabled: true
 management:
   security:
-    enabled: false
+    enabled: false添加
 zuul:
   ignored-services: '*'
   routes:
@@ -29,18 +29,5 @@ zuul:
       path: /api/trade/query
       serviceId: pay-trade-query
 
-
-
-pay:
-  gateway:
-    request:
-      validate:
-        timestamp:
-          enable: true
-          mistake: 60
-        sign:
-          enable: true
-          method: "md5=pub.ustar.pay.trade.common.util.Md5, "
-      method:
-        forward: "alipay.trade.pay=pay-trade-query, "
-
+banner:
+  location: file:/Users/xy/Documents/code/github/gaoxingyun/upay/Docs/image/banner.txt

@@ -1,11 +1,12 @@
 rootProject.name = 'upay'
 
-include 'pay-trade-service:pay-trade-query'
-
 include 'pay-common:pay-common-pojo'
 include 'pay-common:pay-common-util'
 
+include 'pay-trade-service:pay-trade-gateway'
+include 'pay-trade-service:pay-trade-query'
+
 include 'pay-monitor:pay-monitor-admin'
 
-include 'pay-gateway'
+
 

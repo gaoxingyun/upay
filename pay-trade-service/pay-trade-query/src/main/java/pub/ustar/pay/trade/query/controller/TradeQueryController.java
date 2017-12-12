@@ -20,13 +20,14 @@ public class TradeQueryController {
     private final static Logger LOGGER = LoggerFactory.getLogger(TradeQueryRequest.class);
 
     @RequestMapping(method = RequestMethod.POST, value = "/query", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public TradeQueryResponse query(@RequestBody TradeQueryRequest request)
-    {
+    public TradeQueryResponse query(@RequestBody TradeQueryRequest request) {
 
         LOGGER.debug("request:{}", request);
 
         TradeQueryResponse response = new TradeQueryResponse();
-        response.setResultCode("200");
+        response.setCode("200");
+        response.setMsg("ok");
+        response.setTradeStatus("USERPAING");
         return response;
     }
 }

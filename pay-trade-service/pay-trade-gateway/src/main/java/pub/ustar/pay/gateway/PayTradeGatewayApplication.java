@@ -13,9 +13,9 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 @EnableZuulProxy
 @EnableDiscoveryClient
 @SpringBootApplication
-public class PayGatewayApplication {
+public class PayTradeGatewayApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(PayGatewayApplication.class, args);
+        SpringApplication.run(PayTradeGatewayApplication.class, args);
     }
 }

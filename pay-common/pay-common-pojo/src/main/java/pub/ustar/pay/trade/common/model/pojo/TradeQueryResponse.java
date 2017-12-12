@@ -12,22 +12,41 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming;
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 public class TradeQueryResponse {
-    private String resultCode;
-    private String resultMsg;
 
-    public String getResultCode() {
-        return resultCode;
+    /**
+     * 返回码
+     */
+    private String code;
+    /**
+     * 返回信息
+     */
+    private String msg;
+    /**
+     * 订单状态
+     */
+    private String tradeStatus;
+
+    public String getCode() {
+        return code;
     }
 
-    public void setResultCode(String resultCode) {
-        this.resultCode = resultCode;
+    public void setCode(String code) {
+        this.code = code;
     }
 
-    public String getResultMsg() {
-        return resultMsg;
+    public String getMsg() {
+        return msg;
     }
 
-    public void setResultMsg(String resultMsg) {
-        this.resultMsg = resultMsg;
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
+
+    public String getTradeStatus() {
+        return tradeStatus;
+    }
+
+    public void setTradeStatus(String tradeStatus) {
+        this.tradeStatus = tradeStatus;
     }
 }

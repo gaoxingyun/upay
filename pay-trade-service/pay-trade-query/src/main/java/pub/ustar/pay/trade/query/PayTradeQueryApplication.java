@@ -7,9 +7,9 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @EnableDiscoveryClient
 @SpringBootApplication
-public class PayServiceQueryApplication {
+public class PayTradeQueryApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PayServiceQueryApplication.class, args);
+		SpringApplication.run(PayTradeQueryApplication.class, args);
 	}
 }

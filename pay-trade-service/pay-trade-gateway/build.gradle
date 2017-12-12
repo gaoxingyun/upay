@@ -60,7 +60,7 @@ dependencyManagement {
 }
 
 jar {
-	baseName = 'pay-gateway'
+	baseName = 'pay-trade-gateway'
 	version =  '0.0.1'
 }
 
