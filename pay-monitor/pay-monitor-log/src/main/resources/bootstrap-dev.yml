@@ -1,15 +1,15 @@
 server:
- port: ${random.int[30000,65536]}
+ port: 9411
 
 spring:
   application:
-    name: pay-trade-query
+    name: pay-monitor-log
   cloud:
     consul:
       host: consul-center
       port: 8500
       discovery:
-        tags: query
+        tags: monitor-log
         prefer-ip-address: true
       config:
         enabled: true
@@ -24,13 +24,21 @@ spring:
     username: user
     password: 123456
     port: 5672
+  sleuth:
+    enabled: false
+
+
+zipkin:
+  storage:
+    type: elasticsearch
+    elasticsearch:
+      cluster: elasticsearch
+      hosts: http://elasticsearch:9200
+      index: zipkin
+      index-shards: 5
+      index-replicas: 1
 
 
 management:
   security:
     enabled: false
-
-
-logging:
-  level: info
-  file: "logs/${spring.application.name}.log"

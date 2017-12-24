@@ -22,7 +22,7 @@ public class TradeQueryController {
     @RequestMapping(method = RequestMethod.POST, value = "/query", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public TradeQueryResponse query(@RequestBody TradeQueryRequest request) {
 
-        LOGGER.debug("request:{}", request);
+        LOGGER.info("request:{}", request);
 
         TradeQueryResponse response = new TradeQueryResponse();
         response.setCode("200");

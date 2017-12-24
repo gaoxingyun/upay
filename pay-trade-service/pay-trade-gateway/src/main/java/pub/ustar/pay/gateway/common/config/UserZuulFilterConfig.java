@@ -94,21 +94,21 @@ public class UserZuulFilterConfig {
                     encoding = ZuulFilterConstant.FILTER_DEFAULT_ENCODING;
                 }
                 String body = StreamUtils.copyToString(stream, Charset.forName(encoding));
-                LOGGER.debug("request: {}", body);
+                LOGGER.info("request: {}", body);
                 TradeRequest tradeRequest = JacksonUtils.jsonToBean(body, TradeRequest.class);
 
                 String signType = tradeRequest.getSignType();
                 String sign = tradeRequest.getSign();
 
                 boolean isValidSign = tradeGatewaySignService.validateSign(tradeRequest);
-                LOGGER.debug("验签结果: {}", isValidSign);
+                LOGGER.info("验签结果: {}", isValidSign);
                 if (!isValidSign) {
                     throw new PayTradeGatewayValidateSignException();
                 }
                 Long timestamp = Long.parseLong(tradeRequest.getTimestamp());
                 TimestampUtils.checkTimestamp(timestamp, 1000);
                 gatewayResultCode = PayTradeGatewayConstant.GATEWAY_CODE_OK;
-                LOGGER.debug("tradeRequest: {}", tradeRequest);
+                LOGGER.info("tradeRequest: {}", tradeRequest);
             } catch (PayTradeGatewayException e) {
                 gatewayResultCode = PayTradeGatewayConstant.GATEWAY_CODE_NO_PERMISSION;
                 gatewayResultMsg = PayTradeGatewayConstant.GATEWAY_MSG_NO_PERMISSION;

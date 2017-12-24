@@ -1,5 +1,5 @@
 server:
- port: 8080
+ port: 9999
 
 spring:
   application:
@@ -19,9 +19,16 @@ spring:
         profile-separator: ','
         watch:
           enabled: true
+  rabbitmq:
+    host: rabbitmq-server
+    username: user
+    password: 123456
+    port: 5672
+
+
 management:
   security:
-    enabled: false添加
+    enabled: false
 zuul:
   ignored-services: '*'
   routes:
@@ -29,5 +36,11 @@ zuul:
       path: /api/trade/query
       serviceId: pay-trade-query
 
+
 banner:
   location: file:/Users/xy/Documents/code/github/gaoxingyun/upay/Docs/image/banner.txt
+
+
+logging:
+  level: info
+  file: "logs/${spring.application.name}.log"
