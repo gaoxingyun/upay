@@ -1,15 +1,15 @@
 server:
- port: 9999
+ port: ${random.int[30000,65536]}
 
 spring:
   application:
-    name: pay-trade-gateway
+    name: pay-channel-wechat
   cloud:
     consul:
       host: consul-center
       port: 8500
       discovery:
-        tags: pay-trade-gateway
+        tags: channel-wechat
         prefer-ip-address: true
       config:
         enabled: true
@@ -18,7 +18,7 @@ spring:
         default-context: application
         profile-separator: ','
         watch:
-          enabled: false
+          enabled: true
   rabbitmq:
     host: rabbitmq-server
     username: user
@@ -29,16 +29,6 @@ spring:
 management:
   security:
     enabled: false
-zuul:
-  ignored-services: '*'
-  routes:
-    api-pay-trade-query:
-      path: /api/trade/query
-      serviceId: pay-trade-query
-
-
-banner:
-  location: file:/Users/xy/Documents/code/github/gaoxingyun/upay/Docs/image/banner.txt
 
 
 logging:

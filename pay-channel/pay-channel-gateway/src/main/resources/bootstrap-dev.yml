@@ -1,15 +1,15 @@
 server:
- port: 9999
+ port: 9998
 
 spring:
   application:
-    name: pay-trade-gateway
+    name: pay-channel-gateway
   cloud:
     consul:
       host: consul-center
       port: 8500
       discovery:
-        tags: pay-trade-gateway
+        tags: pay-channel-gateway
         prefer-ip-address: true
       config:
         enabled: true
@@ -18,7 +18,7 @@ spring:
         default-context: application
         profile-separator: ','
         watch:
-          enabled: false
+          enabled: true
   rabbitmq:
     host: rabbitmq-server
     username: user
@@ -32,9 +32,12 @@ management:
 zuul:
   ignored-services: '*'
   routes:
-    api-pay-trade-query:
-      path: /api/trade/query
-      serviceId: pay-trade-query
+    api-pay-channel-alipay/query:
+      path: /api/channel/alipay/query
+      serviceId: pay-channel-alipay
+    api-pay-channel-wechat/query:
+      path: /api/channel/wechat/query
+      serviceId: pay-channel-wechat
 
 
 banner:

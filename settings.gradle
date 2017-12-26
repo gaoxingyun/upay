@@ -9,5 +9,8 @@ include 'pay-trade-service:pay-trade-query'
 include 'pay-monitor:pay-monitor-admin'
 include 'pay-monitor:pay-monitor-log'
 
+include 'pay-channel:pay-channel-gateway'
+include 'pay-channel:pay-channel-alipay'
+include 'pay-channel:pay-channel-wechat'
 
 
